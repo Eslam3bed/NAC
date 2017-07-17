@@ -1,5 +1,5 @@
 var test = require('tape');
-var romanizer = require('./romanizer');
+var romanizer = require('./romanN');
 
 test('Tape is up and running', function(t) {
   t.equal(1, 1, 'One should equal one');
