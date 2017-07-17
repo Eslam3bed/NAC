@@ -1,47 +1,34 @@
-module.exports = function RomanNum(num) {
+function romanN(num) {
 //check if it's valid or not
-
-
   if(num < 1)
     return 'The Romans had no representation for less than 1';
   if(num >= 5000)
     return 'There\'s no easy way to represent numbers over 4999 in Roman numerals, sorry!';
-
   var numStr = num.toString();
   var normanAlpha = '';
   //reversing the string to correct the index
   numStr = numStr.split('').reverse().join('');
-
   //for ones
   if (numStr.length == 1)
     normanAlpha += ones(parseInt(numStr));
-
 //for tens
   if (numStr.length == 2) {
     normanAlpha += tens(parseInt(numStr.charAt(1)));
     normanAlpha += ones(parseInt(numStr.charAt(0)));
-
-
   }
   //for hundereds
   if (numStr.length == 3) {
     normanAlpha += hundreds(parseInt(numStr.charAt(2)));
     normanAlpha += tens(parseInt(numStr.charAt(1)));
     normanAlpha += ones(parseInt(numStr.charAt(0)));
-
-
   }
 //for thousnds
   if (numStr.length == 4) {
-
-
     normanAlpha += thousnds(parseInt(numStr.charAt(3)));
     normanAlpha += hundreds(parseInt(numStr.charAt(2)));
     normanAlpha += tens(parseInt(numStr.charAt(1)));
     normanAlpha += ones(parseInt(numStr.charAt(0)));
-
   }
-
   return normanAlpha;
 }
 
@@ -89,21 +76,9 @@ function hundreds(num) {
 }
 
 function thousnds(num) {
-
     num = parseInt(num);
       if (num < 5)
         return repeat(num, 'M');
-
-
-}
-
-function valid(num) {
-  if(num !== undefined)
-    return false;
-  if(num < 1)
-    return 'The Romans had no representation for less than 1';
-  if(num >= 5000)
-    return 'There\'s no easy way to represent numbers over 4999 in Roman numerals, sorry!';
 }
 
 function repeat(times, sympol) {
@@ -112,3 +87,4 @@ function repeat(times, sympol) {
     result += sympol;
   return result;
 }
+module.exports = romanN
